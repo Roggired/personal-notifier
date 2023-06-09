@@ -171,6 +171,7 @@ def start_personal_notifier_long_polling_bot() -> None:
     application.add_handler(CommandHandler("start", _start_command_handler))
     application.add_handler(CommandHandler("bye", _bye_command_handler))
     application.add_handler(CommandHandler("help", _help_command_handler))
+    application.add_handler(CommandHandler("nickname", _nickname_command_handler))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, _random_message_handler))
 
     application.run_polling()
