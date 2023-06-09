@@ -27,7 +27,7 @@ class JsonFileStorage:
                     users
                 )
             )
-            json.dump(json_list, file)
+            json.dump(json_list, file, ensure_ascii=False)
 
     @staticmethod
     def default():

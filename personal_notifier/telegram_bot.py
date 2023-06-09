@@ -32,17 +32,22 @@ def _search_author_user_template(
     all_users = json_file_storage.load_users()
 
     is_user_found: bool = False
+    found_user: Optional[User] = None
     user_index: int = -1
     for i in range(len(all_users)):
         user = all_users[i]
         if user.id == author_user.id:
             is_user_found = True
+            found_user = user
             user_index = i
 
-    if func:
-        func(is_user_found, user_index, author_user, all_users, json_file_storage)
+    if is_user_found:
+        found_user.nickname = author_user.nickname
 
-    return is_user_found, author_user
+    if func:
+        func(is_user_found, user_index, found_user, all_users, json_file_storage)
+
+    return is_user_found, found_user
 
 
 async def _start_command_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
