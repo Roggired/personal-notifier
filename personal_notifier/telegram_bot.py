@@ -42,12 +42,12 @@ def _search_author_user_template(
             user_index = i
 
     if is_user_found:
-        found_user.nickname = author_user.nickname
+        author_user.nickname = found_user.nickname
 
     if func:
-        func(is_user_found, user_index, found_user, all_users, json_file_storage)
+        func(is_user_found, user_index, author_user, all_users, json_file_storage)
 
-    return is_user_found, found_user
+    return is_user_found, author_user
 
 
 async def _start_command_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
