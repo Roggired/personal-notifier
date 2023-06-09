@@ -60,6 +60,18 @@ def bye_not_found_user_message(
     return "Прежде чем отписываться от меня, сперва зарегистрируйся! Иначе как я буду тебя учить заполнять time-management?"
 
 
+def nickname_updated_message(
+    user: User
+) -> str:
+    return "Я запомнил, как к тебе обращаться! А теперь иди и заполни time-management"
+
+
+def nickname_user_not_found_message(
+    user: User
+) -> str:
+    return "Ты кто такой? Я тебя не знаю, сперва подпишись на напоминания при помощи команды /start"
+
+
 def morning_notification(
     user: User
 ) -> str:
